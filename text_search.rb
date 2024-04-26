@@ -110,6 +110,7 @@ class TrieNode
   
   def search_trie(trie)
     loop do
+      puts 'Type a string to search for. '
       input = gets.chomp
       break if input == ':q'
   
@@ -132,5 +133,4 @@ class TrieNode
   
   trie = build_trie_from_file(filename)
   
-  puts 'Type a string to search for. '
   search_trie(trie)
