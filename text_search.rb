@@ -93,6 +93,7 @@ class TrieNode
   
   end
   
+  
   def build_trie_from_file(filename)
     trie = Trie.new #build a trie
   
@@ -123,8 +124,8 @@ class TrieNode
       # word not found 
       else
         puts 'Not found.'
+
       end
-  
     end
   end
   
