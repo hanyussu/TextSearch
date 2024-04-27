@@ -30,6 +30,7 @@ class TrieNode
       @root = TrieNode.new
     end
   
+    # we want to be able to reused the nodes(prefix)
     def insert(word, location)
       node = @root # Traverse from the root of trie
       word.each_char do |char|
@@ -91,6 +92,9 @@ class TrieNode
         words.append(prefix)
       end
       # iterates through each child node of current node
+      # Block Paramaters: char, child
+      # "char" represents the character (key) of current key value
+      # "child" represents the child node (value)
       node.children.each { |char, child| dfs(child, prefix + char, words) }
     end
   
