@@ -14,6 +14,8 @@
 # 5.If the input string is both a full word and a prefix, you just need to print#   the locations of the full word.
 
 class TrieNode
+    # attr_accessor: creates both getter and setter methods for the 
+    # specified instance variables.
     attr_accessor :children, :is_EOW, :locations
   
     def initialize
@@ -71,7 +73,7 @@ class TrieNode
     end
   
     private
-  
+
     def find_node(word)
       node = @root
       word.each_char do |char|
@@ -83,17 +85,18 @@ class TrieNode
       end
       return node
     end
-  
+
     def dfs(node, prefix, words)
       if (node.is_EOW)
         words.append(prefix)
       end
+      # iterates through each child node of current node
       node.children.each { |char, child| dfs(child, prefix + char, words) }
     end
   
   end
   
-  
+
   def build_trie_from_file(filename)
     trie = Trie.new #build a trie
   
