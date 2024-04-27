@@ -107,6 +107,7 @@ class TrieNode
     File.open(filename, 'r') do |file|
       file.each_with_index do |line, line_num|
         line.split.each_with_index do |word, word_num|
+          # insrt one word at a time
           trie.insert(word, [line_num, word_num])
         end
       end
@@ -127,7 +128,7 @@ class TrieNode
         node.locations.each { |location| puts "(#{location[0]}, #{location[1]})"}
       # The word could be a prefix
       elsif (words = trie.starts_with(input))
-        puts words.join("\n")
+        puts words.join("\n") # Prints all the possible words line by line
       # word not found 
       else
         puts 'Not found.'
